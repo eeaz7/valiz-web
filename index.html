@@ -4,139 +4,224 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Valiz — Seyahat Bütçesi ve Gezi Planlayıcı</title>
-<meta name="description" content="Seyahat bütçen, gün gün planın, yapay zekâ gezi rehberin ve anıların tek uygulamada. iPhone ve Apple Watch için.">
+<meta name="description" content="Seyahat bütçen, AI gezi rehberin, gün gün planın, biletlerin ve kimliğin tek uygulamada. iPhone ve Apple Watch için.">
 
 <!-- Safari iOS'ta sayfanin tepesinde "Yukle" seridi cikarir. -->
 <meta name="apple-itunes-app" content="app-id=6793521846">
+<link rel="icon" href="favicon.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0E1A24">
 
 <!-- Link onizleme kartlari. Meta reklam panelleri ve WhatsApp bunu okuyor;
-     og:image mutlak URL olmali, gorece yol calismaz. -->
+     og:image MUTLAK URL olmali, gorece yol Facebook tarafinda calismiyor. -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://valiz.eaxstudio.com/">
 <meta property="og:title" content="Valiz — Seyahat Bütçesi ve Gezi Planlayıcı">
-<meta property="og:description" content="Seyahat bütçen, gün gün planın ve yapay zekâ rehberin tek uygulamada.">
+<meta property="og:description" content="Seyahat bütçen, AI gezi rehberin ve gün gün planın tek uygulamada.">
 <meta property="og:image" content="https://valiz.eaxstudio.com/og.png">
 <meta property="og:locale" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://valiz.eaxstudio.com/">
 
 <style>
-  :root { color-scheme: light dark; --vurgu: #0a7c8c; }
+  /* MARKA PALETI -- uydurma yok: petrol ve altin dogrudan uygulama
+     ikonundan ornekendi, koyu tonlar uygulamanin kendi temasindan geldi.
+     Ikon degisirse bu degerler de guncellenmeli. */
+  :root {
+    --petrol-acik: #49A1BB;
+    --petrol-koyu: #32708F;
+    --altin:       #E5B45F;   /* bagaj etiketi -- markanin tek sicak rengi */
+    --zemin:       #0E1A24;
+    --kart:        #17242F;
+    --kart-ici:    #1F3040;
+    --cizgi:       #2A3B4A;
+    --vurgu:       #4AB3D4;
+    --metin:       #EAF2F7;
+    --metin-soluk: #93A7B6;
+  }
+
+  /* SAYFA HER ZAMAN KOYU -- prefers-color-scheme'e bakmiyoruz.
+     Uygulama da her zaman koyu; reklamdan gelen kullanicinin gordugu
+     ilk ekranla uygulamanin ilk ekrani ayni dunyaya ait olmali.
+     color-scheme: dark form ogelerinin de koyu cizilmesini sagliyor. */
+  :root { color-scheme: dark; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    color: #1d1d1f; background: #fff;
+    color: var(--metin); background: var(--zemin);
+    -webkit-font-smoothing: antialiased;
   }
   .govde { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
-  @media (prefers-color-scheme: dark) {
-    :root { --vurgu: #6ac4dc; }
-    body { color: #f5f5f7; background: #101014; }
-    .kart { background: #1b1b20 !important; }
-  }
   a { color: var(--vurgu); text-decoration: none; font-weight: 600; }
-  h2 { font-size: 1.15rem; margin: 34px 0 10px; }
+  h2 {
+    font-size: 1.05rem; margin: 40px 0 12px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--metin-soluk);
+  }
   p { margin-bottom: 12px; }
-  .alt { color: #86868b; font-size: .95rem; }
 
-  /* Kahraman bolum uygulamanin kendi koyu kimligini tasiyor -- sayfanin
-     geri kalani sistem temasini izlese de burasi HER ZAMAN koyu. */
+  /* Kahraman bolum ikonun kendi degradesini tasiyor: sayfa ile App Store
+     ikonu yan yana gelince ayni sey gorunsun. */
   .kahraman {
-    background: linear-gradient(160deg, #0E1A24 0%, #1C5C99 100%);
-    color: #fff; text-align: center; padding: 64px 24px 56px;
+    background: linear-gradient(158deg, var(--petrol-acik) 0%, var(--petrol-koyu) 62%, #24536B 100%);
+    text-align: center; padding: 56px 24px 52px;
   }
-  .kahraman h1 { font-size: 2.6rem; letter-spacing: -.02em; margin-bottom: 12px; }
-  .kahraman p { color: #dce9f2; max-width: 460px; margin: 0 auto 28px; }
-  .rozet { font-size: 3.2rem; line-height: 1; margin-bottom: 16px; }
+  .ikon {
+    width: 104px; height: 104px; border-radius: 24px; margin-bottom: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.34);
+  }
+  .kahraman h1 {
+    font-size: 2.7rem; letter-spacing: -.025em; margin-bottom: 10px; color: #fff;
+  }
+  .kahraman p {
+    color: #EAF4F9; max-width: 470px; margin: 0 auto 30px;
+  }
 
+  /* CTA altin: markanin tek sicak rengi ve sayfada baska hicbir yerde
+     kullanilmiyor -- tiklanacak tek sey oldugu bakisla anlasilsin. */
   .indir {
-    display: inline-block; background: #fff; color: #0E1A24;
-    padding: 15px 34px; border-radius: 999px;
+    display: inline-block; background: var(--altin); color: #2A1E06;
+    padding: 15px 36px; border-radius: 999px;
     font-size: 1.05rem; font-weight: 700;
+    box-shadow: 0 8px 22px rgba(0,0,0,.28);
   }
-  .indir:hover { opacity: .88; }
-  .kunye { margin-top: 18px; font-size: .85rem; color: #9db8cc; }
+  .indir:hover { filter: brightness(1.07); }
+  .kunye { margin-top: 18px; font-size: .85rem; color: #D2E6EF; }
 
-  /* Ekranlar yatay kayan serit: dar telefonda tasma yerine kaydirma. */
+  /* Vitrin gorselleri magaza panelleri: baslik gorselin ICINDE basili, o
+     yuzden kucultulemiyorlar -- 320px'in altinda baslik okunmaz oluyor.
+     Serit bu yuzden teker teker kayiyor, kucuk kucuk yan yana dizilmiyor. */
   .ekranlar {
-    display: flex; gap: 14px; overflow-x: auto; padding: 32px 24px;
+    display: flex; gap: 16px; overflow-x: auto; padding: 36px 24px 14px;
     scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
   }
   .ekranlar img {
-    width: 186px; flex: none; border-radius: 18px; scroll-snap-align: center;
-    border: 1px solid rgba(128,128,128,.22);
+    width: 320px; flex: none; border-radius: 20px; scroll-snap-align: center;
+    border: 1px solid var(--cizgi);
+  }
+  .kaydir {
+    text-align: center; color: var(--metin-soluk);
+    font-size: .8rem; letter-spacing: .06em; padding-bottom: 6px;
   }
 
-  .kart { background: #f5f5f7; border-radius: 14px; padding: 18px 20px; margin: 10px 0; }
-  .kart b { display: block; margin-bottom: 4px; }
-  footer { margin-top: 56px; font-size: .85rem; color: #86868b; }
+  .kart {
+    background: var(--kart); border: 1px solid var(--cizgi);
+    border-radius: 14px; padding: 18px 20px; margin: 10px 0;
+  }
+  .kart b { display: block; margin-bottom: 5px; color: #fff; }
+  .kart .ic { color: var(--metin-soluk); }
+
+  footer {
+    margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--cizgi);
+    font-size: .85rem; color: var(--metin-soluk);
+  }
 </style>
 </head>
 <body>
 
 <header class="kahraman">
-  <div class="rozet">🧳✈️</div>
+  <img class="ikon" src="g/ikon.webp" alt="Valiz uygulama simgesi">
   <h1>Valiz</h1>
-  <p>Seyahat bütçen, gün gün planın, yapay zekâ gezi rehberin ve anıların — hepsi tek uygulamada.</p>
-  <!-- Ulke kodu YOK: Apple tiklayani kendi vitrinine yonlendiriyor, boylece
-       yurt disindan gelen "bu ulkede yok" duvarina carpmiyor. -->
+  <p>Seyahat bütçen, yapay zekâ gezi rehberin, gün gün planın, biletlerin ve
+     kimliğin — hepsi tek uygulamada.</p>
+  <!-- Ulke kodu YOK (/app/id...): Apple tiklayani kendi vitrinine
+       yonlendiriyor, boylece 7 dilli uygulamada yurt disindan gelen trafik
+       "bu ulkede yok" duvarina carpmiyor. -->
   <a class="indir" href="https://apps.apple.com/app/id6793521846">App Store'dan İndir</a>
   <div class="kunye">iPhone ve Apple Watch · 7 dil · Reklamsız</div>
 </header>
 
 <div class="ekranlar">
-  <img src="g/ozet.png" alt="Gezi özeti: bütçe, harcama ve günlük ilerleme" loading="lazy">
-  <img src="g/plan.png" alt="Gün gün gezi planı" loading="lazy">
-  <img src="g/butce.png" alt="Kategori bazlı bütçe takibi" loading="lazy">
-  <img src="g/ai.png" alt="Yapay zekâ ile hazırlanan gezi rehberi" loading="lazy">
+  <img src="g/01-ozet.webp" alt="Gezinin tamamı tek ekranda: bütçe, bugünün programı ve kalan gün" loading="lazy">
+  <img src="g/04-ai.webp" alt="Yapay zekâ gezi rehberi: şehre özel gezilecek yerler, biletler ve ulaşım" loading="lazy">
+  <img src="g/02-plan.webp" alt="Günü saat saat planla; rehberden gelen öneriler doğrudan güne düşer" loading="lazy">
+  <img src="g/03-butce.webp" alt="Bütçen kategoriye bölünsün: zarf yöntemiyle yeme-içme, ulaşım, konaklama" loading="lazy">
+  <img src="g/05-kimlik.webp" alt="Kimliğim: pasaport, sürücü belgesi ve vize hep yanında" loading="lazy">
+  <img src="g/06-bilet.webp" alt="Biletler tek yerde ve internetsiz; QR kod kapıda hazır" loading="lazy">
+  <img src="g/07-bolusme.webp" alt="Kim kime ne kadar borçlu: en az transferle hesaplaşma önerisi" loading="lazy">
+  <img src="g/08-rozet.webp" alt="Gittiğin her yer bir rozet: şehirleri topla, haritada biriktir" loading="lazy">
 </div>
+<div class="kaydir">← kaydır →</div>
 
 <main class="govde">
   <h2>Ne yapar?</h2>
-  <div class="kart">
-    <b>💰 Bütçe ve harcama</b>
-    Gezi bütçeni kategori kategori kur, harcamalarını iki dokunuşta gir. Canlı
-    döviz kuruyla her harcama kendi kurundan kaydedilir.
-  </div>
-  <div class="kart">
-    <b>🗓️ Gün gün plan</b>
-    Gezinin her gününü yer yer planla; saat, konum ve notlarıyla birlikte.
-  </div>
+
   <div class="kart">
     <b>✨ Yapay zekâ gezi rehberi</b>
-    Destinasyonunu yaz, 1-2 dakikada sana özel rehber insin — gezilecek yerler,
-    yeme içme önerileri ve pratik bilgiler.
+    <div class="ic">Destinasyonunu yaz, 1-2 dakikada şehre özel rehberin insin:
+    gezilecek yerler, her biri için süre, ücret ve bilet gerekip gerekmediği —
+    "mutlaka gör"den yerel ipuçlarına kadar.</div>
   </div>
+
   <div class="kart">
-    <b>👥 Bölüşme ve anılar</b>
-    Kalabalık gezide kim kime ne borçlu otomatik hesaplanır. Fotoğraflarınla
-    gezinin anılarını da aynı yerde tut.
+    <b>🗓️ AI ile gün gün plan</b>
+    <div class="ic">Rehberdeki öneriler doğrudan güne düşer. Günü saat saat kur;
+    her satırda hava durumu, konum ve o etkinliğin bileti aynı yerde.</div>
+  </div>
+
+  <div class="kart">
+    <b>🍽️ Yeme &amp; içme</b>
+    <div class="ic">Şehrin kahvaltıcısı, lokantası ve kafesi fiyat aralığıyla
+    önerilir; tek dokunuşla plana eklenir. Bütçende de kendi kategorisi var —
+    nereye ne kadar gittiğini görürsün.</div>
+  </div>
+
+  <div class="kart">
+    <b>🪪 Kimliğim</b>
+    <div class="ic">Pasaport, sürücü belgesi ve vize hep yanında. Belgenin
+    fotoğrafını çek, bilgiler kendiliğinden dolsun. Belgeler cihazında ve iCloud
+    hesabında şifreli saklanır; bizim sunucumuza gitmez.</div>
+  </div>
+
+  <div class="kart">
+    <b>🎫 Biletler, internetsiz</b>
+    <div class="ic">Uçuş, otel, araç kiralama, etkinlik ve restoran rezervasyonu
+    tek yerde. QR kod kapıda hazır — bağlantı gerekmez.</div>
+  </div>
+
+  <div class="kart">
+    <b>💰 Zarf yöntemiyle bütçe</b>
+    <div class="ic">Bütçeni kategori kategori böl, harcamanı iki dokunuşta gir.
+    Canlı döviz kuruyla her harcama kendi kurundan kaydedilir.</div>
+  </div>
+
+  <div class="kart">
+    <b>👥 Masraf bölüşme</b>
+    <div class="ic">Kalabalık gezide kim kime ne kadar borçlu otomatik çıkar —
+    üstelik en az sayıda transferle hesaplaşma önerisiyle.</div>
+  </div>
+
+  <div class="kart">
+    <b>🌍 Benim Dünyam</b>
+    <div class="ic">Gittiğin her yer bir rozet. Şehirleri ve ülkeleri topla,
+    haritanda biriktir; gezdiğin yerlerin koleksiyonu kendiliğinden oluşsun.</div>
   </div>
 
   <h2>Destek</h2>
   <div class="kart">
     <b>📧 Bize ulaş</b>
-    Soru, öneri ve sorun bildirimleri için:
+    <div class="ic">Soru, öneri ve sorun bildirimleri için:
     <a href="mailto:info@eaxstudio.com">info@eaxstudio.com</a><br>
-    Genellikle 1-2 gün içinde yanıtlıyoruz.
+    Genellikle 1-2 gün içinde yanıtlıyoruz.</div>
   </div>
 
   <h2>Sık Sorulanlar</h2>
   <div class="kart">
     <b>Verilerim nerede saklanıyor?</b>
-    Gezilerin, harcamaların ve anı fotoğrafların cihazında ve (açıksa) senin iCloud
-    hesabında saklanır. Bizim erişimimiz yoktur. Ayrıntılar için
-    <a href="gizlilik.html">Gizlilik Politikası</a>na bak.
+    <div class="ic">Gezilerin, harcamaların ve anı fotoğrafların cihazında ve
+    (açıksa) senin iCloud hesabında saklanır. Bizim erişimimiz yoktur.
+    Ayrıntılar için <a href="gizlilik.html">Gizlilik Politikası</a>na bak.</div>
   </div>
   <div class="kart">
     <b>AI Gezi Rehberi nasıl çalışıyor?</b>
-    Destinasyonunu yazıp "Rehber Oluştur"a dokunduğunda rehber, yapay zekâ ile
-    1-2 dakikada hazırlanır ve cihazına iner. Aynı destinasyon için rehber bir kez
-    üretilir; tekrar açmak ücretsizdir ve anında gelir.
+    <div class="ic">Destinasyonunu yazıp "Rehber Oluştur"a dokunduğunda rehber,
+    yapay zekâ ile 1-2 dakikada hazırlanır ve cihazına iner. Aynı destinasyon
+    için rehber bir kez üretilir; tekrar açmak ücretsizdir ve anında gelir.</div>
   </div>
   <div class="kart">
     <b>Uygulama çevrimdışı çalışır mı?</b>
-    Evet — bütçe, harcama, plan ve anılar tamamen çevrimdışı çalışır. Yalnızca canlı
-    döviz kuru ve AI rehber üretimi internet bağlantısı ister.
+    <div class="ic">Evet — bütçe, harcama, plan, biletler ve anılar tamamen
+    çevrimdışı çalışır. Yalnızca canlı döviz kuru ve AI rehber üretimi internet
+    bağlantısı ister.</div>
   </div>
 
   <h2>Yasal</h2>
