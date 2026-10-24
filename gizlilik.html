@@ -31,15 +31,17 @@
   <a class="geri" href="index.html">← Valiz Destek</a>
 
   <h1>Gizlilik Politikası</h1>
-  <p class="alt">Valiz · EAX Studio · Yürürlük: 22 Ekim 2026 · <a href="#en">English below ↓</a></p>
+  <p class="alt">Valiz · EAX Studio · Yürürlük: 24 Ekim 2026 · <a href="#en">English below ↓</a></p>
 
-  <p>Kısa özet: <strong>hesap isteğe bağlıdır, reklam yoktur, verilerin satılmaz.</strong>
-  Uygulamayı hiç giriş yapmadan kullanabilirsin; o zaman gezilerin yalnızca cihazında durur.</p>
+  <p>Kısa özet: <strong>reklam yoktur, verilerin satılmaz.</strong> iPhone'da hesap
+  yoktur; Android'de hesap isteğe bağlıdır. Giriş yapmazsan gezilerin, harcamaların ve
+  fotoğrafların bizim sunucumuza gelmez.</p>
 
-  <h2>1. Hesap isteğe bağlıdır</h2>
-  <p>Valiz'i kullanmak için hesap gerekmez. Yalnızca gezilerini birden çok cihazda
-  görmek istersen giriş yaparsın. Giriş Google hesabıyla ya da e-posta + parola ile
-  yapılır; bu durumda <strong>e-posta adresin, adın ve hesap kimliğin</strong>
+  <h2>1. Hesap</h2>
+  <p><strong>iPhone / iPad:</strong> Hesap yoktur. Eşitleme senin iCloud hesabınla yapılır.</p>
+  <p><strong>Android:</strong> Hesap isteğe bağlıdır; yalnızca gezilerini birden çok
+  cihazda görmek istersen giriş yaparsın. Giriş Google hesabıyla ya da e-posta + parola
+  ile yapılır; bu durumda <strong>e-posta adresin, adın ve hesap kimliğin</strong>
   sunucumuzda saklanır. Parolan bize açık olarak ulaşmaz, kimlik doğrulama
   sağlayıcımızda tutulur.</p>
 
@@ -53,28 +55,44 @@
     <li><strong>Android:</strong> Giriş yaptıysan geziler (bütçeleriyle), harcamalar,
     yol arkadaşları, plan maddeleri, notlar, valiz listeleri ve anı fotoğrafları
     (açıklamalarıyla) hesabına bağlı olarak sunucumuzda eşitlenir. Giriş yapmazsan
-    hiçbiri cihazdan çıkmaz.</li>
-    <li><strong>Belgeler ve rozetler eşitlenmez;</strong> cihazında kalır. Belgelerin
-    alanları cihazda şifrelenir.</li>
+    bunların hiçbiri bizim sunucumuza gelmez. Telefonunda Android yedeklemesi açıksa
+    gezi verilerin Google'ın yedekleme hizmetiyle kendi Google hesabına yedeklenebilir;
+    bu yedeğe bizim erişimimiz yoktur.</li>
+    <li><strong>Belgeler ve rozetler sunucumuza eşitlenmez.</strong> Belge numarası ve
+    barkod gibi hassas alanlar cihazında, cihaza özel bir anahtarla şifrelenir.
+    Belgenin türü, başlığı, sahibinin adı ve geçerlilik tarihi şifresiz tutulur ve
+    cihaz yedeğine girebilir. Yedekten dönen yeni bir Android cihazda şifreli alanlar
+    açılamaz, yeniden girilmesi gerekir. iPhone'da şifreleme anahtarı iCloud Anahtar
+    Zinciri'nde durur.</li>
   </ul>
 
-  <h2>3. AI Gezi Rehberi kullandığında paylaşılanlar</h2>
-  <p>"Rehber Oluştur"a dokunduğunda şu bilgiler sunucumuza gönderilir ve rehberin
-  hazırlanması için yapay zekâ sağlayıcımız Anthropic'in Claude modeline iletilir:</p>
+  <h2>3. Yapay zekâ özellikleri: rehber, gün planı ve rozet tanıma</h2>
+  <p>Bu özellikler için aşağıdaki bilgiler sunucumuza gönderilir ve yapay zekâ
+  sağlayıcımız Anthropic'in Claude modeline iletilir:</p>
   <ul>
-    <li>Yazdığın <strong>destinasyon</strong> (örn. "Roma, İtalya"), gezi gün sayısı ve para birimi</li>
-    <li>Girdiysen <strong>otel adı</strong> (otele ulaşım tarifi yazılabilmesi için)</li>
-    <li>Kimliğinle ilişkili olmayan, rastgele üretilmiş bir <strong>cihaz kodu</strong>
-    (adil kullanım sınırı için; kişisel bilgi içermez)</li>
+    <li><strong>Rehber:</strong> yazdığın <strong>destinasyon</strong> (örn. "Roma,
+    İtalya"), gezi gün sayısı ve para birimi; girdiysen <strong>otel adı</strong>
+    (otele ulaşım tarifi yazılabilmesi için).</li>
+    <li><strong>Gün planı:</strong> destinasyon, gün sayısı, para birimi, seçtiğin ilgi
+    alanları ve tempo.</li>
+    <li><strong>Rozet tanıma:</strong> bir plan maddesini tamamladığında maddenin yer
+    adı ve gezinin destinasyonu, gittiğin yerin bir rozeti olup olmadığını anlamak için
+    <strong>otomatik olarak</strong> gönderilir. Plan maddelerine kişisel ya da sağlık
+    bilgisi yazmamanı öneririz.</li>
+    <li>Her istekle birlikte kimliğinle ilişkili olmayan, rastgele üretilmiş bir
+    <strong>cihaz kodu</strong> (adil kullanım sınırı için).</li>
   </ul>
-  <p>Bu isteklerde adın, e-postan ya da konumun yer almaz. Üretilen rehberler, aynı
-  destinasyonu isteyen kullanıcılara tekrar üretim yapmadan sunulabilmesi için
-  sunucumuzda destinasyon bazında (kişiden bağımsız) önbelleğe alınır.</p>
+  <p>Bu isteklerde adın, e-postan ya da cihaz konumun yer almaz. Sonuçlar, aynı şeyi
+  isteyen kullanıcılara yeniden üretim yapmadan sunulabilmesi için kişiden bağımsız
+  olarak önbelleğe alınır: rehber ve planlar destinasyon bazında en çok 120 gün,
+  rozet sonuçları yer adı bazında en çok 365 gün.</p>
 
-  <h2>4. Hava durumu ve harita</h2>
-  <p>Hava tahmini için <strong>gezinin destinasyonu</strong> sunucumuza gönderilir;
-  cihazının konumu kullanılmaz ve uygulama konum izni istemez. Benim Dünyam
-  haritası Google Haritalar ile çizilir.</p>
+  <h2>4. Hava durumu, harita ve gezi kapağı</h2>
+  <p>Hava tahmini için gezinin (otel girdiysen otelin) <strong>koordinatı</strong>
+  sunucumuza gönderilir, yaklaşık 10 km'lik bir ızgaraya yuvarlanır ve tahmin için
+  Google Weather'a iletilir. Cihazının konumu kullanılmaz ve uygulama konum izni
+  istemez. Benim Dünyam haritası Google Haritalar ile çizilir. iPhone'da gezi kapağı
+  fotoğrafı için destinasyon adı Wikimedia Commons'ta aranır.</p>
 
   <h2>5. Döviz kurları</h2>
   <p>Canlı kurlar açık bir kur servisinden (open.er-api.com) alınır. Bu istekte
@@ -96,50 +114,90 @@
     <li>İsteğin bağlantısından türetilen <strong>yaklaşık konum</strong> (ülke/şehir
     düzeyinde; cihazın GPS konumu değil)</li>
   </ul>
-  <p>Uygulamadaki <strong>Profil → Gizlilik</strong> bölümünde üç anahtar vardır:
-  kullanım verisi paylaşımını kapatırsan toplama durur; yaklaşık konum paylaşımını
-  kapatırsan kullanım verilerine şehir/ülke yazılmaz ve daha önce kaydedilen konum
-  silinir; hesap bilgisi paylaşımını kapatırsan adın ve e-postan analitik tarafına
-  hiç gönderilmez, daha önce gönderildiyse silinir.</p>
-  <p><strong>AB/AEA, Birleşik Krallık ve İsviçre'de</strong> kullanım verisi ve
-  yaklaşık konum paylaşımı ilk açılışta <strong>kapalı</strong> başlar; uygulama bir
-  kez sorar ve yalnızca izin verirsen açılır.</p>
+  <p>Uygulamadaki <strong>Gizlilik</strong> bölümünde (Android'de Profil → Gizlilik,
+  iPhone'da Diğer → Gizlilik) anahtarlar vardır: kullanım verisi paylaşımını kapatırsan
+  toplama durur; yaklaşık konum paylaşımını kapatırsan kullanım verilerine şehir/ülke
+  yazılmaz ve daha önce kaydedilen konum silinir; hesap bilgisi paylaşımını kapatırsan
+  adın ve e-postan analitik tarafına hiç gönderilmez, daha önce gönderildiyse silinir.</p>
+  <p><strong>Android'de</strong> AB/AEA, Birleşik Krallık ve İsviçre'de kullanım verisi
+  ve yaklaşık konum paylaşımı ilk açılışta <strong>kapalı</strong> başlar; uygulama bir
+  kez sorar ve yalnızca izin verirsen açılır. <strong>iPhone'da</strong> bu soru bir
+  sonraki sürümle geliyor; o zamana kadar Diğer → Gizlilik'ten anahtarları
+  kapatabilirsin.</p>
 
   <h2>8. Reklam ve veri satışı</h2>
   <p>Valiz'de reklam yoktur. Verilerin hiçbir amaçla satılmaz ve reklam ağlarıyla
   paylaşılmaz.</p>
 
-  <h2>9. Satın almalar</h2>
+  <h2>9. Satın almalar, davet kodları ve ücretsiz gezi hakkı</h2>
   <p>Valiz Pro aboneliği Google Play (Android) ve App Store (iOS) üzerinden
   yürütülür; ödeme bilgilerini biz görmeyiz. Aboneliğini mağaza hesabından
   yönetebilir ve istediğin zaman iptal edebilirsin.</p>
+  <p>Davet kodu kullandığında kod; Android'de Valiz hesap kimliğinle, iPhone'da Apple'ın
+  bu uygulamaya özel iCloud kayıt kimliğiyle, hesap yoksa rastgele bir cihaz koduyla
+  birlikte sunucumuzda saklanır. Amaç, kodun başka bir hesapta kullanılmasını
+  önlemektir; silinmesini istersen bize yaz.</p>
+  <p>Android'de giriş yaptıysan, ücretsiz gezi hakkının kötüye kullanılmasını önlemek
+  için açtığın gezi sayısı ve yapay zekâ rehberi ürettiğin destinasyonlar hesabında
+  tutulur; hesabını silince silinir.</p>
 
   <h2>10. Hesap ve veri silme</h2>
-  <p>Hesabını ve eşitlenen verilerini uygulama içinden <strong>Profil (gezi listesinin sağ üstü) → Hesap →
-  Hesabı sil</strong> ile hemen silebilirsin; diğer yollar
+  <p><strong>Android'de</strong> hesabını ve eşitlenen verilerini uygulama içinden
+  <strong>Profil (gezi listesinin sağ üstü) → Hesap → Hesabı sil</strong> ile hemen
+  silebilirsin. <strong>iPhone'da</strong> hesap yoktur; verilerin iCloud'unda durur ve
+  uygulamadan ya da iCloud ayarlarından silinebilir. Diğer yollar
   <a href="veri-silme.html">Hesap ve Veri Silme</a> sayfasında.</p>
 
-  <h2>11. Çocukların gizliliği</h2>
+  <h2>11. Veri sorumlusu, hizmet sağlayıcılar ve hakların</h2>
+  <p><strong>Veri sorumlusu:</strong> Eyüp Emre Az (EAX Studio),
+  <a href="mailto:info@eaxstudio.com">info@eaxstudio.com</a>.</p>
+  <p><strong>Adımıza veri işleyen hizmet sağlayıcılar:</strong></p>
+  <ul>
+    <li>Supabase: Android hesabı ve eşitleme (sunucular Frankfurt, AB)</li>
+    <li>Cloudflare: uygulama sunucumuz, yapay zekâ ve hava istekleri, analitik toplama</li>
+    <li>Anthropic: yapay zekâ özellikleri (ABD)</li>
+    <li>Google: giriş, haritalar, hava durumu, Play faturalandırma</li>
+    <li>Apple: iCloud, App Store</li>
+    <li>open.er-api.com: döviz kuru (kişisel veri gönderilmez)</li>
+  </ul>
+  <p>Bu sağlayıcıların bir kısmının sunucuları Türkiye dışındadır; verilerin bu
+  hizmetleri sunabilmek için yurt dışına aktarılır.</p>
+  <p><strong>Hukuki sebepler:</strong> eşitleme ve yapay zekâ özellikleri, istediğin
+  hizmeti sunmak (sözleşmenin ifası) içindir. Analitik meşru menfaatimize dayanır;
+  AB/AEA, Birleşik Krallık ve İsviçre'de yalnızca iznine dayanır.</p>
+  <p><strong>Saklama:</strong> hesap ve eşitleme verileri hesabın silinene kadar;
+  sunucu yedekleri en çok 7 gün; IP adresi yalnızca günlük kullanım sınırı için
+  birkaç gün; yapay zekâ önbelleği yukarıdaki sürelerle. Analitik kayıtlar ürünü
+  geliştirmek için gerektiği sürece tutulur; hesabını silince bu kayıtlardan adın,
+  e-postan ve hesap kimliğin kaldırılır.</p>
+  <p><strong>Hakların:</strong> KVKK m.11 ve GDPR kapsamında verilerine erişme,
+  düzeltilmesini ya da silinmesini isteme, işlemeye itiraz etme, verilerinin bir
+  kopyasını alma ve şikâyet hakkına sahipsin. Başvurunu
+  <a href="mailto:info@eaxstudio.com">info@eaxstudio.com</a> adresine gönderebilirsin;
+  en geç 30 gün içinde yanıtlarız.</p>
+
+  <h2>12. Çocukların gizliliği</h2>
   <p>Valiz çocuklara yönelik bir uygulama değildir ve bilerek çocuklardan veri
   toplamaz. Bir çocuğun verisinin bize ulaştığını düşünüyorsan bize yaz, silelim.</p>
 
-  <h2>12. Değişiklikler ve iletişim</h2>
+  <h2>13. Değişiklikler ve iletişim</h2>
   <p>Bu politika değişirse bu sayfada güncellenir. Sorular için:
   <a href="mailto:info@eaxstudio.com">info@eaxstudio.com</a></p>
 
   <hr id="en">
 
   <h1>Privacy Policy</h1>
-  <p class="alt">Valiz · EAX Studio · Effective: October 22, 2026</p>
+  <p class="alt">Valiz · EAX Studio · Effective: October 24, 2026</p>
 
-  <p>In short: <strong>an account is optional, there are no ads, and your data is
-  never sold.</strong> You can use the app without ever signing in, in which case
-  your trips stay on your device.</p>
+  <p>In short: <strong>there are no ads and your data is never sold.</strong> On iPhone
+  there is no account; on Android an account is optional. If you don't sign in, your
+  trips, expenses and photos never reach our server.</p>
 
-  <h2>1. An account is optional</h2>
-  <p>Valiz does not require an account. You sign in only if you want your trips on
-  more than one device. Sign-in uses a Google account or email + password; in that
-  case your <strong>email address, name and account identifier</strong> are stored
+  <h2>1. Account</h2>
+  <p><strong>iPhone / iPad:</strong> There is no account. Sync uses your own iCloud account.</p>
+  <p><strong>Android:</strong> An account is optional; you sign in only if you want your
+  trips on more than one device. Sign-in uses a Google account or email + password; in
+  that case your <strong>email address, name and account identifier</strong> are stored
   on our server. Your password never reaches us in the clear — it is held by our
   authentication provider.</p>
 
@@ -153,28 +211,44 @@
     <li><strong>Android:</strong> if you sign in, trips (with their budgets),
     expenses, companions, plan items, notes, packing lists and memory photos (with
     their captions) sync to our server under your account. Without signing in, none
-    of it leaves the device.</li>
-    <li><strong>Documents and badges do not sync;</strong> they stay on your device,
-    and document fields are encrypted there.</li>
+    of it reaches our server. If Android backup is on, your trip data may be backed up
+    to your own Google account by Google's backup service; we cannot access that
+    backup.</li>
+    <li><strong>Documents and badges are not synced to our server.</strong> Sensitive
+    fields such as document number and barcode are encrypted on your device with a
+    device-specific key. A document's type, title, holder name and expiry date are
+    stored unencrypted and may be included in device backups. On a new Android device
+    restored from backup, the encrypted fields cannot be opened and must be re-entered.
+    On iPhone the encryption key is kept in iCloud Keychain.</li>
   </ul>
 
-  <h2>3. What is shared when you use the AI Travel Guide</h2>
-  <p>When you tap "Generate Guide", the following is sent to our server and passed
-  to our AI provider, Anthropic's Claude model, to prepare your guide:</p>
+  <h2>3. AI features: guide, day plan and badge recognition</h2>
+  <p>For these features the following is sent to our server and passed to our AI
+  provider, Anthropic's Claude model:</p>
   <ul>
-    <li>The <strong>destination</strong> you typed (e.g. "Rome, Italy"), trip length, and currency</li>
-    <li>Your <strong>hotel name</strong>, if entered (to write directions to your hotel)</li>
-    <li>A randomly generated <strong>device code</strong> not linked to your identity
-    (used for fair-use limits; contains no personal information)</li>
+    <li><strong>Guide:</strong> the <strong>destination</strong> you typed (e.g. "Rome,
+    Italy"), trip length and currency; your <strong>hotel name</strong>, if entered (to
+    write directions to your hotel).</li>
+    <li><strong>Day plan:</strong> destination, number of days, currency, the interests
+    and pace you chose.</li>
+    <li><strong>Badge recognition:</strong> when you complete a plan item, the item's
+    place name and the trip's destination are sent <strong>automatically</strong> to
+    check whether the place has a badge. We recommend not writing personal or health
+    information in plan items.</li>
+    <li>With each request, a randomly generated <strong>device code</strong> not linked
+    to your identity (for fair-use limits).</li>
   </ul>
-  <p>These requests never include your name, email or location. Generated guides are
-  cached on our server per destination (not per person) so the same city does not
-  need to be generated twice.</p>
+  <p>These requests never include your name, email or device location. Results are
+  cached independently of any person so they need not be generated twice: guides and
+  plans per destination for up to 120 days, badge results per place name for up to
+  365 days.</p>
 
-  <h2>4. Weather and maps</h2>
-  <p>For the forecast, the <strong>trip's destination</strong> is sent to our server;
-  your device location is not used and the app requests no location permission. The
-  My World map is drawn with Google Maps.</p>
+  <h2>4. Weather, maps and trip cover</h2>
+  <p>For the forecast, the <strong>coordinates</strong> of the trip (or your hotel, if
+  entered) are sent to our server, rounded to a grid of about 10 km and passed to
+  Google Weather. Your device location is not used and the app requests no location
+  permission. The My World map is drawn with Google Maps. On iPhone, the destination
+  name is searched on Wikimedia Commons for the trip cover photo.</p>
 
   <h2>5. Exchange rates</h2>
   <p>Live rates are fetched from a public exchange-rate service (open.er-api.com).
@@ -196,35 +270,73 @@
     <li><strong>Approximate location</strong> derived from the connection
     (country/city level — not your device's GPS location)</li>
   </ul>
-  <p>Under <strong>Profile → Privacy</strong> in the app there are three switches:
-  turning off usage sharing stops collection; turning off approximate-location
-  sharing means no city/country is recorded with usage data and any location stored
-  earlier is deleted; turning off account-info sharing means your name and email are
-  never sent to analytics, and anything sent earlier is deleted.</p>
-  <p><strong>In the EU/EEA, the UK and Switzerland</strong> usage and approximate-location
-  sharing start <strong>off</strong>; the app asks once and turns them on only if you
-  agree.</p>
+  <p>The app's <strong>Privacy</strong> section (Profile → Privacy on Android,
+  More → Privacy on iPhone) has switches: turning off usage sharing stops collection;
+  turning off approximate-location sharing means no city/country is recorded with usage
+  data and any location stored earlier is deleted; turning off account-info sharing
+  means your name and email are never sent to analytics, and anything sent earlier is
+  deleted.</p>
+  <p><strong>On Android</strong>, in the EU/EEA, the UK and Switzerland usage and
+  approximate-location sharing start <strong>off</strong>; the app asks once and turns
+  them on only if you agree. <strong>On iPhone</strong> this prompt arrives with the next
+  version; until then you can turn the switches off under More → Privacy.</p>
 
   <h2>8. Ads and data selling</h2>
   <p>Valiz contains no ads. Your data is never sold and never shared with ad
   networks.</p>
 
-  <h2>9. Purchases</h2>
+  <h2>9. Purchases, invite codes and the free trip</h2>
   <p>The Valiz Pro subscription runs through Google Play (Android) and the App Store
   (iOS); we never see your payment details. You can manage or cancel the
   subscription from your store account at any time.</p>
+  <p>When you redeem an invite code, the code is stored on our server together with
+  your Valiz account ID on Android, Apple's app-specific iCloud record ID on iPhone, or
+  a random device code if there is no account. This prevents the code from being used
+  on another account; write to us if you want it deleted.</p>
+  <p>On Android, if you are signed in, the number of trips you created and the
+  destinations you generated AI guides for are kept with your account to prevent abuse
+  of the free trip; they are deleted when you delete your account.</p>
 
   <h2>10. Account and data deletion</h2>
-  <p>You can delete your account and synced data immediately in the app under
-  <strong>Profile (top right of the trip list) → Account → Delete account</strong>; other options are on the
-  <a href="veri-silme.html#en">Account &amp; Data Deletion</a> page.</p>
+  <p><strong>On Android</strong> you can delete your account and synced data
+  immediately in the app under <strong>Profile (top right of the trip list) → Account →
+  Delete account</strong>. <strong>On iPhone</strong> there is no account; your data
+  lives in your iCloud and can be deleted from the app or from iCloud settings. Other
+  options are on the <a href="veri-silme.html#en">Account &amp; Data Deletion</a> page.</p>
 
-  <h2>11. Children's privacy</h2>
+  <h2>11. Controller, service providers and your rights</h2>
+  <p><strong>Controller:</strong> Eyüp Emre Az (EAX Studio),
+  <a href="mailto:info@eaxstudio.com">info@eaxstudio.com</a>.</p>
+  <p><strong>Service providers processing data on our behalf:</strong></p>
+  <ul>
+    <li>Supabase: Android account and sync (servers in Frankfurt, EU)</li>
+    <li>Cloudflare: our app server, AI and weather requests, analytics collection</li>
+    <li>Anthropic: AI features (USA)</li>
+    <li>Google: sign-in, maps, weather, Play billing</li>
+    <li>Apple: iCloud, App Store</li>
+    <li>open.er-api.com: exchange rates (no personal data sent)</li>
+  </ul>
+  <p>Some of these providers run servers outside your country; your data is
+  transferred abroad to provide these services.</p>
+  <p><strong>Legal bases:</strong> sync and AI features are provided to deliver the
+  service you asked for (performance of a contract). Analytics rely on our legitimate
+  interest; in the EU/EEA, the UK and Switzerland only on your consent.</p>
+  <p><strong>Retention:</strong> account and sync data until you delete your account;
+  server backups up to 7 days; IP addresses only for a few days for daily fair-use
+  limits; AI cache for the periods above. Analytics records are kept as long as needed
+  to improve the product; when you delete your account, your name, email and account
+  ID are removed from them.</p>
+  <p><strong>Your rights:</strong> under the GDPR and Türkiye's KVKK you may access your
+  data, ask for it to be corrected or deleted, object to processing, receive a copy of
+  your data and lodge a complaint. Send requests to
+  <a href="mailto:info@eaxstudio.com">info@eaxstudio.com</a>; we reply within 30 days.</p>
+
+  <h2>12. Children's privacy</h2>
   <p>Valiz is not directed at children and does not knowingly collect data from
   them. If you believe a child's data has reached us, write to us and we will
   delete it.</p>
 
-  <h2>12. Changes and contact</h2>
+  <h2>13. Changes and contact</h2>
   <p>Any changes to this policy will be posted on this page. Questions:
   <a href="mailto:info@eaxstudio.com">info@eaxstudio.com</a></p>
 
