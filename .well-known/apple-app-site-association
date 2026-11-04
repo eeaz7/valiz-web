@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["CW4NH3AAPC.com.eaz.ValizApp"],
+        "components": [
+          { "/": "/katil*", "comment": "Ortak gezi daveti; /v (salt okunur görünüm) bilerek tarayıcıda kalır" }
+        ]
+      }
+    ]
+  }
+}
