@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Valiz — Ortak gezi daveti</title>
+<!-- Davet jetonu # sonrasında: tarayıcı onu sunucuya ve Referer'a göndermez.
+     Sayfa da hiçbir yere göndermiyor; yalnız ekranda gösterip uygulamaya veriyor. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0E1A24">
+<link rel="icon" href="favicon.png" sizes="32x32">
+<meta property="og:title" content="Valiz — Ortak gezi daveti">
+<meta property="og:description" content="Bir gezi grubuna davet edildin: bütçe, plan ve harcamalar tek yerde.">
+<meta property="og:image" content="https://valiz.eaxstudio.com/og.png">
+<style>
+  :root { --zemin:#0E1A24; --kart:#17242F; --kart-ici:#1F3040; --cizgi:#2A3B4A;
+          --vurgu:#4AB3D4; --altin:#E5B45F; --metin:#EAF2F7; --metin-soluk:#93A7B6; }
+  * { box-sizing: border-box; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+         padding:24px 16px; font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+         color:var(--metin); background:var(--zemin); }
+  main { width:100%; max-width:440px; background:var(--kart); border:1px solid var(--cizgi);
+         border-radius:22px; padding:28px 22px; text-align:center; }
+  img.ikon { width:72px; height:72px; border-radius:18px; }
+  h1 { font-size:22px; margin:14px 0 6px; }
+  p { color:var(--metin-soluk); margin:0 0 18px; }
+  .dugme { display:block; width:100%; padding:14px; border-radius:14px; border:0; cursor:pointer;
+           font-family:inherit; font-size:16px; font-weight:600; line-height:1; text-decoration:none; margin:10px 0; }
+  .ana { background:var(--vurgu); color:#08202A; }
+  .ikincil { background:var(--kart-ici); color:var(--metin); border:1px solid var(--cizgi); }
+  .kod { font:13px/1.4 ui-monospace, Menlo, monospace; word-break:break-all; background:var(--kart-ici);
+         border:1px dashed var(--cizgi); border-radius:12px; padding:12px; margin:6px 0 4px; color:var(--altin); }
+  .not { font-size:13px; }
+  .gizli { display:none; }
+  a { color:var(--vurgu); }
+</style>
+</head>
+<body>
+<main>
+  <img class="ikon" src="g/ikon.webp" alt="Valiz">
+  <h1 data-tr="Ortak geziye davet edildin" data-en="You're invited to a shared trip"></h1>
+  <p data-tr="Bütçe, plan ve harcamalar tek yerde; herkes kendi harcamasını kendi telefonundan girer."
+     data-en="Budget, plan and expenses in one place; everyone adds their own expenses from their phone."></p>
+
+  <div id="var">
+    <a id="ac" class="dugme ana" data-tr="Valiz'de aç" data-en="Open in Valiz"></a>
+    <p class="not" data-tr="Açılmazsa: Valiz'de gezi listesinin altındaki “Davetle katıl”a bu kodu yapıştır."
+       data-en="If it doesn't open: paste this code into “Join with an invite” at the bottom of your trips in Valiz."></p>
+    <div id="kod" class="kod"></div>
+    <button id="kopyala" class="dugme ikincil" data-tr="Kodu kopyala" data-en="Copy code"></button>
+  </div>
+  <p id="yok" class="gizli" data-tr="Bu bağlantı eksik görünüyor. Davet edenden bağlantıyı yeniden göndermesini iste."
+     data-en="This link looks incomplete. Ask the person who invited you to send it again."></p>
+
+  <p class="not" style="margin-top:18px" data-tr="Valiz yüklü değil mi?" data-en="Don't have Valiz?"></p>
+  <a class="dugme ikincil" href="https://play.google.com/store/apps/details?id=com.eaz.valiz">Google Play</a>
+  <a class="dugme ikincil" href="https://apps.apple.com/app/id6793521846">App Store</a>
+  <p id="ios" class="not gizli" data-tr="Ortak gezi iPhone'a çok yakında geliyor; şimdilik Android'de katılabilirsin."
+     data-en="Shared trips are coming to iPhone very soon; for now you can join on Android."></p>
+</main>
+<script>
+  (function () {
+    var dil = (navigator.language || "en").toLowerCase().indexOf("tr") === 0 ? "tr" : "en";
+    document.documentElement.lang = dil;
+    document.querySelectorAll("[data-tr]").forEach(function (e) { e.textContent = e.getAttribute("data-" + dil); });
+
+    var jeton = (location.hash || "").slice(1);
+    if (!/^[A-Za-z0-9_-]{43}$/.test(jeton)) {
+      document.getElementById("var").classList.add("gizli");
+      document.getElementById("yok").classList.remove("gizli");
+      return;
+    }
+    document.getElementById("kod").textContent = jeton;
+    document.getElementById("ac").href = "valiz://katil#" + jeton;
+    if (/iPhone|iPad|iPod/.test(navigator.userAgent)) document.getElementById("ios").classList.remove("gizli");
+
+    var kopyala = document.getElementById("kopyala");
+    kopyala.addEventListener("click", function () {
+      navigator.clipboard.writeText(jeton).then(function () {
+        kopyala.textContent = dil === "tr" ? "Kopyalandı ✓" : "Copied ✓";
+      });
+    });
+  })();
+</script>
+</body>
+</html>

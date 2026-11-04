@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.eaz.valiz",
+      "sha256_cert_fingerprints": [
+        "93:33:17:9A:EF:65:81:06:D9:DD:55:BA:09:A3:BD:2F:F7:EC:AA:F5:D9:BB:9A:E5:F0:16:F9:C8:B9:8F:D0:76"
+      ]
+    }
+  }
+]
