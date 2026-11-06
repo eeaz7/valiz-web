@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Valiz — Seyahat Bütçesi ve Gezi Planlayıcı</title>
-<meta name="description" content="Seyahat bütçen, AI gezi rehberin, gün gün planın, biletlerin ve kimliğin tek uygulamada. iPhone ve Apple Watch için.">
+<meta name="description" content="Seyahat bütçen, AI gezi rehberin, gün gün planın, biletlerin ve kimliğin tek uygulamada. Yol arkadaşlarınla ortak gezi, masraf bölüşme. iPhone ve Apple Watch için.">
 
 <!-- Safari iOS'ta sayfanin tepesinde "Yukle" seridi cikarir. -->
 <meta name="apple-itunes-app" content="app-id=6793521846">
@@ -17,7 +17,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://valiz.eaxstudio.com/">
 <meta property="og:title" content="Valiz — Seyahat Bütçesi ve Gezi Planlayıcı">
-<meta property="og:description" content="Seyahat bütçen, AI gezi rehberin ve gün gün planın tek uygulamada.">
+<meta property="og:description" content="Seyahat bütçen, AI gezi rehberin ve gün gün planın tek uygulamada. Artık yol arkadaşlarınla ortak.">
 <meta property="og:image" content="https://valiz.eaxstudio.com/og.png">
 <meta property="og:locale" content="tr_TR">
 <meta name="twitter:card" content="summary_large_image">
@@ -111,6 +111,13 @@
   }
   .kart b { display: block; margin-bottom: 5px; color: #fff; }
   .kart .ic { color: var(--metin-soluk); }
+  /* Yeni ozellik karti: altin yalniz CTA'da kalsin diye vurgu petrol tonunda. */
+  .kart.yeni { border-color: var(--petrol-acik); }
+  .etiket {
+    display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px;
+    font-size: .7rem; letter-spacing: .06em; vertical-align: 2px;
+    background: var(--petrol-koyu); color: #fff;
+  }
 
   footer {
     margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--cizgi);
@@ -124,7 +131,7 @@
   <img class="ikon" src="g/ikon.webp" alt="Valiz uygulama simgesi">
   <h1>Valiz</h1>
   <p>Seyahat bütçen, yapay zekâ gezi rehberin, gün gün planın, biletlerin ve
-     kimliğin — hepsi tek uygulamada.</p>
+     kimliğin — hepsi tek uygulamada. Artık yol arkadaşlarınla ortak.</p>
   <!-- Ulke kodu YOK (/app/id...): Apple tiklayani kendi vitrinine
        yonlendiriyor, boylece 7 dilli uygulamada yurt disindan gelen trafik
        "bu ulkede yok" duvarina carpmiyor. -->
@@ -146,6 +153,14 @@
 
 <main class="govde">
   <h2>Ne yapar?</h2>
+
+  <div class="kart yeni">
+    <b>🤝 Ortak gezi <span class="etiket">YENİ</span></b>
+    <div class="ic">Geziyi bir davet bağlantısıyla paylaş; yol arkadaşların katılsın,
+    harcamasını kendi telefonundan girsin. Her harcama birkaç saniyede herkesin
+    ekranında; bütçe ve kalan tutar herkes için güncel. Hesap gerekmez — Apple ile Giriş
+    yalnız paylaşırken ya da katılırken istenir. Şimdilik iPhone'da.</div>
+  </div>
 
   <div class="kart">
     <b>✨ Yapay zekâ gezi rehberi</b>
@@ -190,7 +205,9 @@
   <div class="kart">
     <b>👥 Masraf bölüşme</b>
     <div class="ic">Kalabalık gezide kim kime ne kadar borçlu otomatik çıkar —
-    üstelik en az sayıda transferle hesaplaşma önerisiyle.</div>
+    üstelik en az sayıda transferle hesaplaşma önerisiyle. Herkesin uygulaması olması
+    gerekmez; isimle eklemek yeter. İstersen geziyi paylaş, herkes kendi harcamasını
+    girsin.</div>
   </div>
 
   <div class="kart">
@@ -214,7 +231,9 @@
     ve (açıksa) kendi iCloud hesabında durur; bizim erişimimiz yoktur. Android'de hesap
     isteğe bağlıdır: giriş yapmazsan gezilerin, harcamaların ve fotoğrafların sunucumuza
     gelmez; giriş yaparsan cihazların arasında eşitlenmek üzere hesabına bağlı olarak
-    sunucumuzda saklanır. Belgelerin iki platformda da yalnız cihazında, şifreli durur.
+    sunucumuzda saklanır. Bir geziyi paylaşırsan yalnız o gezinin bütçesi, kişileri,
+    harcamaları ve plan maddeleri, üyelerle görünmek üzere sunucumuzda (AB, Frankfurt)
+    tutulur. Belgelerin iki platformda da yalnız cihazında, şifreli durur.
     Ayrıntılar için <a href="gizlilik.html">Gizlilik Politikası</a>na bak.</div>
   </div>
   <div class="kart">
@@ -222,6 +241,15 @@
     <div class="ic">Destinasyonunu yazıp "Rehber Oluştur"a dokunduğunda rehber,
     yapay zekâ ile 1-2 dakikada hazırlanır ve cihazına iner. Aynı destinasyon
     için rehber bir kez üretilir; tekrar açmak ücretsizdir ve anında gelir.</div>
+  </div>
+  <div class="kart">
+    <b>Ortak gezi nasıl çalışıyor?</b>
+    <div class="ic">Gezinde <b style="display:inline;color:inherit">Diğer → Ortak gezi →
+    Davet bağlantısını paylaş</b>'a dokun, bağlantıyı yol arkadaşlarına gönder.
+    Bağlantıya dokunan kişi Apple ile giriş yapıp geziye katılır. Üyeler bütçeyi, planı
+    ve harcamaları görür, kendi harcamalarını girip düzenler; gezinin sahibi üyeleri
+    çıkarabilir ve paylaşımı istediği an kapatabilir. Hesabını uygulamanın içinden
+    (<b style="display:inline;color:inherit">Diğer → Hesabı sil</b>) tek adımda silebilirsin.</div>
   </div>
   <div class="kart">
     <b>Uygulama çevrimdışı çalışır mı?</b>
@@ -233,7 +261,10 @@
     <b>Ücretsiz neler var?</b>
     <div class="ic">İlk gezin her özelliğiyle, 60 güne kadar ücretsiz. Sonraki geziler
     için Valiz Pro aylık ya da yıllık alınır; yıllık planda 7 gün ücretsiz deneme var.
-    Güncel fiyatı mağazada görürsün. Reklam yok.</div>
+    Abonelik istemiyorsan iPhone'da tek seferlik <b style="display:inline;color:inherit">Ömür
+    Boyu</b> seçeneği de var; Aile Paylaşımı tüm planlarda açık. Paylaşılan bir geziye
+    katılmak ücretsizdir ve ücretsiz gezi hakkından düşmez. Güncel fiyatı mağazada
+    görürsün. Reklam yok.</div>
   </div>
   <div class="kart">
     <b>iPhone'dan Android'e geçersem?</b>
